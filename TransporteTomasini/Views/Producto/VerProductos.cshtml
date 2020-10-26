@@ -1,0 +1,44 @@
+﻿@model List<TransporteTomasini.Models.ViewModels.ListProductoViewModel>
+@{
+    ViewBag.titulo = "Listado de Productos";
+}
+
+<h2 style="text-align:center">@ViewBag.titulo</h2>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="text" name="" value="" placeholder="¿Que buscas?" />
+        <input type="submit" name="name" value="Buscar" class="btn btn-primary" />
+    </div>
+</div>
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+
+            <th>Nombre</th>
+            <th>Precio por unidad</th>
+            <th>Acciones</th>
+        </tr>
+
+        @foreach (var oElemento in Model)
+        {
+            <tr>
+
+                <td>@oElemento.NombreProducto</td>
+                <td>@oElemento.PrecioProducto</td>
+                <td>
+                    <a href="~/Producto/Editar/@oElemento.IdProducto" class="btn btn-primary">Editar</a>
+                    <a href="~/Producto/Eliminar/@oElemento.IdProducto" class="btn btn-danger">Eliminar</a>
+                </td>
+
+            </tr>
+
+        }
+    </table>
+</div>
+
+<div class="row" style="text-align: right;padding: 5px;">
+    <a href="~/Cliente/Index" class="btn btn-warning">Volver</a>
+</div>

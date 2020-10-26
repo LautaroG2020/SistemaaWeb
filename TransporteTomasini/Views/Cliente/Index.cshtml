@@ -1,0 +1,69 @@
+﻿@model List<TransporteTomasini.Models.ViewModels.ListClienteViewModel>
+@{
+    ViewBag.Title = "Listado de Clientes";
+}
+
+<h2 style="text-align:center">@ViewBag.Title</h2>
+
+<br />
+@using (Html.BeginForm())
+
+{
+    <div class="container body-content">
+        @Html.AntiForgeryToken()
+        <div class="row" style="text-align: right; padding: 5px;">
+            <div class="col-md-6">
+                <div class="row" style="text-align:left">
+                    @Html.Label("Nombre")
+                    @Html.Editor("Nombre", new { @class = "form-control" })
+                    <input type="submit" name="name" class="btn btn-info" value="Buscar" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <a href="~/Cliente/Nuevo" class="btn btn-primary">Nuevo Cliente</a>
+                    <a href="~/Home/Index" class="btn btn-warning">Volver</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Provincia</th>
+                    <th>Localidad</th>
+                    <th>Direccion</th>
+                    <th>Teléfono</th>
+                    <th>Mail</th>
+                    <th>Acciones</th>
+
+                </tr>
+                @foreach (var oElemento in Model)
+                {
+                    <tr>
+                        <td>@oElemento.IdCliente</td>
+                        <td>@oElemento.NombreCliente</td>
+                        <td>@oElemento.Provincia</td>
+                        <td>@oElemento.Localidad</td>
+                        <td>@oElemento.Direccion</td>
+                        <td>@oElemento.Telefono</td>
+                        <td>@oElemento.Mail</td>
+                        <td>
+                            <a href="~/Producto/VerProductos/@oElemento.IdCliente" class="btn btn-default">Ver Productos</a>
+                            <a href="~/Cliente/Editar/@oElemento.IdCliente" class="btn btn-primary">Editar</a>
+                            <a href="~/Cliente/Eliminar/@oElemento.IdCliente" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+
+}
+
+
+

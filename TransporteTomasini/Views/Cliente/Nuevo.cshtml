@@ -1,0 +1,70 @@
+﻿@model TransporteTomasini.Models.ViewModels.ClienteViewModel
+@{
+    ViewBag.Title = "Agregando nuevo Cliente";
+}
+
+<h2 style="text-align:center">@ViewBag.Title</h2>
+@if (ViewBag.sms == true)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error al crear nuevo Cliente:</h4>
+        <p>Ya existe un cliente con el mismo nombre en la base de datos.</p>
+        <hr>
+        <p class="mb-0">Para evitar duplicidad, elija otro nombre.</p>
+    </div>
+}
+
+@using (Html.BeginForm("Nuevo", "Cliente", FormMethod.Post))
+{
+    <div class="container">
+        <div class="body-content" style="justify-content: center; align-items:center;display:flex">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.NombreCliente)
+                        @Html.TextBoxFor(d => d.NombreCliente, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.NombreCliente, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.Provincia)
+                        @Html.TextBoxFor(d => d.Provincia, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.Provincia, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.Localidad)
+                        @Html.TextBoxFor(d => d.Localidad, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.Localidad, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.Direccion)
+                        @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.Direccion, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.Telefono)
+                        @Html.TextBoxFor(d => d.Telefono, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.Telefono, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding: 5px;">
+                        @Html.LabelFor(d => d.Mail)
+                        @Html.TextBoxFor(d => d.Mail, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(d => d.Mail, "", new { @class = "red" })
+                    </div>
+
+                    <div class="row" style="padding-top: 5px;text-align: center">
+                        <input type="submit" class="btn btn-primary" value="Agregar" />
+                        <a href="~/Cliente/Index" class="btn btn-warning">Volver</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+}
+

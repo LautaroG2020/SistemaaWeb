@@ -1,0 +1,41 @@
+﻿@model TransporteTomasini.Models.ViewModels.ProductoViewModel
+@{
+    ViewBag.Tittle = "Editar Producto";
+}
+
+<h2 style="text-align:center">@ViewBag.Tittle</h2>
+<br />
+@using (Html.BeginForm("Editar", "Producto", FormMethod.Post))
+{
+    <div class="container">
+        <div class="body-content" style="justify-content: center; align-items:center;display:flex">
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.HiddenFor(d => d.IdProducto)
+                        <div class="row">
+                            @Html.LabelFor(d => d.NombreProducto)
+                            @Html.TextBoxFor(d => d.NombreProducto, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.NombreProducto, "", new { @class = "red" })
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(d => d.PrecioProducto)
+                            @Html.TextBoxFor(d => d.PrecioProducto, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.PrecioProducto, "", new { @class = "red" })
+                        </div>
+
+
+                    </div>
+                </div>
+                <br />
+
+                <div class="row" style="padding-top: 5px;text-align: center">
+                    <input type="submit" class="btn btn-primary" value="Editar" />
+                    <a href="~/Cliente/Index" class="btn btn-warning">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+ }
+

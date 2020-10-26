@@ -1,0 +1,65 @@
+﻿@model TransporteTomasini.Models.ViewModels.ClienteViewModel
+@{
+    ViewBag.Title = "Editar Cliente";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+
+@using (Html.BeginForm("Editar", "Cliente", FormMethod.Post))
+{
+    <div class="container">
+        <div class="body-content" style="justify-content: center; align-items:center;display:flex">
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.HiddenFor(d => d.IdCliente)
+                        <div class="row">
+                            @Html.LabelFor(d => d.NombreCliente)
+                            @Html.TextBoxFor(d => d.NombreCliente, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.NombreCliente, "", new { @class = "red" })
+                        </div>
+
+                        <div class="row">
+                            @Html.LabelFor(d => d.Provincia)
+                            @Html.TextBoxFor(d => d.Provincia, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Provincia, "", new { @class = "red" })
+                        </div>
+
+                        <div class="row">
+                            @Html.LabelFor(d => d.Localidad)
+                            @Html.TextBoxFor(d => d.Localidad, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Localidad, "", new { @class = "red" })
+                        </div>
+
+                        <div class="row">
+                            @Html.LabelFor(d => d.Direccion)
+                            @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Direccion, "", new { @class = "red" })
+                        </div>
+
+                        <div class="row">
+                            @Html.LabelFor(d => d.Telefono)
+                            @Html.TextBoxFor(d => d.Telefono, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Telefono, "", new { @class = "red" })
+                        </div>
+
+                        <div class="row">
+                            @Html.LabelFor(d => d.Mail)
+                            @Html.TextBoxFor(d => d.Mail, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Mail, "", new { @class = "red" })
+                        </div>
+                        <br />
+
+                        <div class="row" style="padding-top: 5px;text-align: right">
+                            <input type="submit" class="btn btn-primary" value="Editar" />
+                            <a href="~/Cliente/Index" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+}

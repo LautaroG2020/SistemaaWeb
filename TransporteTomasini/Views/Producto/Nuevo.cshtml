@@ -1,0 +1,52 @@
+﻿@using TransporteTomasini.Models;
+@using System.Data;
+@using System.Data.SqlClient;
+@model TransporteTomasini.Models.ViewModels.ProductoViewModel
+@{
+    ViewBag.Title = "Agregar un nuevo Producto";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+
+<h2 style="text-align:center">@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo", "Producto", FormMethod.Post))
+{<div class="container">
+    <div class="body-content" style="justify-content: center; align-items:center;display:flex">
+        <div class="row">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+
+                    @Html.LabelFor(d => d.NombreProducto)
+                    @Html.TextBoxFor(d => d.NombreProducto, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.NombreProducto, "", new { @class = "red" })
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+
+                    @Html.LabelFor(d => d.PrecioProducto)
+                    @Html.TextBoxFor(d => d.PrecioProducto, "", new { @class = "form-control " })
+                    @Html.ValidationMessageFor(d => d.PrecioProducto, "", new { @class = "red" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+
+                    @Html.LabelFor(d => d.IdCliente)
+                    @Html.DropDownListFor(d => d.IdCliente, items, "Selecciona el cliente", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.IdCliente, "", new { @class = "red" })
+                </div>
+            </div>
+            <div class="row" style="padding-top: 5px; text-align:center;">
+                <input type="submit" class="btn btn-primary" value="Agregar" />
+                <a href="~/Home/Index" class="btn btn-warning">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+            
+
+
+            
+            }
