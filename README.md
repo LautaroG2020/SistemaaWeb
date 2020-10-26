@@ -1,1 +1,3 @@
-# SistemaaWeb
+# SistemaWeb
+# Descripción
+Es un sistema muy sencillo ASP que utiliza MVC con Entity Framework donde se realizan consultas por medio de LinQ con expresiones Lambda, se trata de un Listado de Clientes donde cada cliente va a tener su listado de productos personalizados. El sistema es simple y está en pleno desarrollo, pero la idea es ir factorizándolo lo máximo posible hasta lograr hacerlo un sistema real, que abarque muchos conceptos de C#. Donde en el BackEnd se implementen los principios SOLID, Inyección de Dependencia y un intento de Arquitectura Hexagonal ; Y el FrontEnd este realizado con Angular y finalizando con una App con Xamarin.
